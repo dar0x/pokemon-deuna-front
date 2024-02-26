@@ -1,0 +1,10 @@
+.router-outlet-container {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.router-outlet-content {
+  width: 800px;
+  max-width: 100%;
+}

@@ -13,7 +13,9 @@ import {
 } from '@angular/material/table';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
-import { MatAnchor, MatButton } from '@angular/material/button';
+import { MatAnchor, MatButton, MatMiniFabButton } from '@angular/material/button';
+import { MatCardAvatar } from '@angular/material/card';
+import { MatIcon } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,9 @@ import { MatAnchor, MatButton } from '@angular/material/button';
     MatRow,
     MatAnchor,
     MatButton,
+    MatIcon,
+    MatMiniFabButton,
+    MatCardAvatar,
   ]
 })
 export class PokemonModule {

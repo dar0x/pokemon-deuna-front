@@ -8,7 +8,7 @@ export interface PokemonDetailResponse {
   held_items?: any[];
   id: number;
   is_default: boolean;
-  location_area_encounters: string;
+  location_area_encounters?: string;
   moves?: Mfe[];
   name: string;
   order: number;
@@ -92,8 +92,8 @@ export interface Sprites {
   front_female: any;
   front_shiny: string;
   front_shiny_female: any;
-  other: Other;
-  versions: Versions;
+  other?: Other;
+  versions?: Versions;
 }
 
 export interface Other {

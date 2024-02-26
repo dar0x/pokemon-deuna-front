@@ -1,1 +1,53 @@
-<p>pokemon-detail works!</p>
+<div class="container shadow-sm rounded" *ngIf="pokemon">
+  <div>
+    <h1 class="text-center my-4">{{ pokemon.name | titlecase }}
+      <small>
+        <img mat-card-avatar [src]="pokemon.sprites?.front_default" alt="front">
+      </small>
+    </h1>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <img
+        class="img-fluid shadow-sm rounded"
+        [src]="pokemon.sprites?.other?.['official-artwork']?.front_default"
+        [alt]="pokemon.name">
+      <div class="container row align-items-center">
+        <h3 class="my-3 mr-2">Tipos: </h3>
+        <span class="badge badge-success section-title" *ngFor="let type of pokemon.types">
+        {{ type.type.name | titlecase}}
+      </span>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <h3 class="my-3 section-title">Detalle</h3>
+      <div class="container">
+        <p><strong>Base Experience:</strong> {{ pokemon.base_experience }}</p>
+        <p><strong>Height:</strong> {{ pokemon.height }}</p>
+        <p><strong>Weight:</strong> {{ pokemon.weight }}</p>
+      </div>
+
+      <h3 class="my-3 section-title">Habilidades</h3>
+      <div class="container">
+        <ul class="list-group">
+          <li class="list-group-item"
+              *ngFor="let ability of pokemon.abilities">{{ ability.ability.name | titlecase}}</li>
+        </ul>
+      </div>
+
+      <h3 class="my-3 section-title">Estadísticas</h3>
+      <div class="container">
+        <ul>
+          <li *ngFor="let stat of pokemon.stats">
+            <strong>{{ stat.stat.name }}:</strong> {{ stat.base_stat }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <button mat-raised-button color="primary" class="float-right mt-3" routerLink="/">
+    Regresar
+  </button>
+</div>

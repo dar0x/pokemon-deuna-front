@@ -1,0 +1,23 @@
+.container {
+  margin: 20px auto;
+}
+
+.img-fluid {
+  width: 100%
+}
+
+@media only screen and (max-width: 767px) {
+  [class="img-fluid"] {
+    max-height: 400px;
+    object-fit: cover;
+  }
+}
+
+.badge {
+  margin-right: 5px;
+}
+
+.section-title {
+  font-weight: bold;
+  font-size: 22px;
+}
