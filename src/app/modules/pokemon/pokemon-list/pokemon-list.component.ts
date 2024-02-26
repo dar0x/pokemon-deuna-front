@@ -12,7 +12,7 @@ import { PokemonService } from '../services/pokemon.service';
 export class PokemonListComponent implements OnInit {
   public displayedColumns: string[] = ['id', 'name', 'detail'];
   public dataSource: MatTableDataSource<PokemonListResult> = new MatTableDataSource();
-  public readonly pageSize: number = 5;
+  public readonly pageSize: number = 10;
   public page: number = 0;
   public totalHits: number = 0;
 

@@ -1,0 +1,26 @@
+.container {
+  padding-top: 100px;
+}
+
+.mat-card {
+  background: #f8f9fa;
+}
+
+.mat-card-title {
+  color: #fff;
+}
+
+.title-message {
+  font: 152px / 124px Roboto, sans-serif !important;
+  letter-spacing: .03125em;
+  margin: 0 0 16px;
+  color: #39050f;
+  font-weight: 500 !important;
+}
+
+.custom-error-icon {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 132px;
+  color: #721c24;
+}
