@@ -16,6 +16,7 @@ import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.componen
 import { MatAnchor, MatButton, MatMiniFabButton } from '@angular/material/button';
 import { MatCardAvatar } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MatIcon } from '@angular/material/icon';
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     PokemonRoutingModule,
     MatPaginatorModule,
     MatTableModule,

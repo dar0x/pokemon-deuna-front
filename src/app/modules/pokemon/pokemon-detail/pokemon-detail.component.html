@@ -2,7 +2,7 @@
   <div>
     <h1 class="text-center my-4">{{ pokemon.name | titlecase }}
       <small>
-        <img mat-card-avatar [src]="pokemon.sprites?.front_default" alt="front">
+        <img class="icon-image" mat-card-avatar [src]="pokemon.sprites?.front_default" alt="front">
       </small>
     </h1>
   </div>
@@ -30,15 +30,14 @@
       </div>
 
       <h3 class="my-3 section-title">Habilidades</h3>
-      <div class="container">
-        <ul class="list-group">
-          <li class="list-group-item"
-              *ngFor="let ability of pokemon.abilities">{{ ability.ability.name | titlecase}}</li>
+      <div>
+        <ul>
+          <li *ngFor="let ability of pokemon.abilities">{{ ability.ability.name | titlecase}}</li>
         </ul>
       </div>
 
       <h3 class="my-3 section-title">Estadísticas</h3>
-      <div class="container">
+      <div>
         <ul>
           <li *ngFor="let stat of pokemon.stats">
             <strong>{{ stat.stat.name }}:</strong> {{ stat.base_stat }}
