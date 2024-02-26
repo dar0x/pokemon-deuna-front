@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
+import { AfterViewInit, Component } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { PokemonListResponse, PokemonListResult } from '../interface/pokemon-list-response.interface';
 import { PokemonService } from '../services/pokemon.service';
@@ -10,23 +10,30 @@ import { PokemonService } from '../services/pokemon.service';
   styleUrl: './pokemon-list.component.css'
 })
 export class PokemonListComponent implements AfterViewInit {
-  public readonly pageSize: number = 5;
-  public offset: number = 0;
   public displayedColumns: string[] = ['id', 'name', 'detail'];
-  public dataSource: MatTableDataSource<PokemonListResult>;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  public dataSource: MatTableDataSource<PokemonListResult> = new MatTableDataSource();
+  public readonly pageSize: number = 5;
+  public page: number = 0;
+  public totalHits: number = 0;
 
-  constructor(private pokemonService: PokemonService) {
-    this.dataSource = new MatTableDataSource<PokemonListResult>([]);
-  }
+  constructor(private pokemonService: PokemonService) {}
 
   ngAfterViewInit() {
-    this.pokemonService.getList(this.pageSize, this.offset).subscribe((response: PokemonListResponse) => {
+    this.getPokemonList();
+  }
+
+  public changePage(event: PageEvent) {
+    this.page = event.pageIndex;
+    this.getPokemonList();
+  }
+
+  getPokemonList() {
+    this.pokemonService.getList(this.pageSize, this.page * this.pageSize).subscribe((response: PokemonListResponse) => {
       this.dataSource.data = response.results.map(pokemon => ({
         ...pokemon,
         id: parseInt(pokemon.url.split('/').filter(Boolean).pop() || '0'),
       }));
-      this.dataSource.paginator = this.paginator;
+      this.totalHits = response.count
     });
   }
 }
