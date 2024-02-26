@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { PokemonListResponse, PokemonListResult } from '../interface/pokemon-list-response.interface';
@@ -9,7 +9,7 @@ import { PokemonService } from '../services/pokemon.service';
   templateUrl: './pokemon-list.component.html',
   styleUrl: './pokemon-list.component.css'
 })
-export class PokemonListComponent implements AfterViewInit {
+export class PokemonListComponent implements OnInit {
   public displayedColumns: string[] = ['id', 'name', 'detail'];
   public dataSource: MatTableDataSource<PokemonListResult> = new MatTableDataSource();
   public readonly pageSize: number = 5;
@@ -18,7 +18,7 @@ export class PokemonListComponent implements AfterViewInit {
 
   constructor(private pokemonService: PokemonService) {}
 
-  ngAfterViewInit() {
+  ngOnInit(): void {
     this.getPokemonList();
   }
 

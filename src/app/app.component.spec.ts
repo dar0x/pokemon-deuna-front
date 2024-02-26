@@ -17,13 +17,13 @@ describe('AppComponent', () => {
   it(`should have the 'pokemon-deuna-front' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('pokemon-deuna-front');
+    expect(app.title).toEqual('Pokedex - App');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, pokemon-deuna-front');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Pokedex - App');
   });
 });
